@@ -1,0 +1,154 @@
+:root {
+  --swiper-theme-color: hsl(var(--bc-yellow)) !important;
+}
+
+/* Hero da Home — controles discretos e sem sobrepor o texto */
+#home_slider .swiper-horizontal > .swiper-pagination-bullets {
+  bottom: 32px !important;
+}
+
+/* Todos os slides da Home assumem a altura do slide mais alto
+   (o hero usa altura mínima fluida; evita faixa vazia na troca de slide). */
+#home_slider .swiper-slide {
+  height: auto;
+}
+
+#home_slider .swiper-slide > * {
+  height: 100%;
+}
+
+#home_slider .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: rgb(255 255 255 / 60%);
+  opacity: 1;
+  position: relative;
+  transition: width var(--motion-fast) var(--motion-standard), background-color var(--motion-fast) var(--motion-standard);
+}
+
+/* Área de toque de ~44px sem alterar o visual do indicador */
+#home_slider .swiper-pagination-bullet::after {
+  content: '';
+  position: absolute;
+  inset: -17px -12px;
+}
+
+
+#home_slider .swiper-pagination-bullet-active {
+  background: hsl(var(--bc-yellow));
+  width: 32px;
+  border-radius: 999px;
+  box-shadow: 0 0 0 1px rgb(241 192 53 / 0.16);
+}
+
+#home_slider .swiper-button-next,
+#home_slider .swiper-button-prev {
+  color: rgb(255 255 255 / 85%);
+  transform: scale(0.6);
+  transition: color var(--motion-fast) var(--motion-standard), transform var(--motion-fast) var(--motion-standard);
+}
+
+#home_slider .swiper-button-next:hover,
+#home_slider .swiper-button-prev:hover {
+  color: hsl(var(--bc-yellow));
+  transform: scale(0.64);
+}
+
+#home_slider .swiper-button-next:focus-visible,
+#home_slider .swiper-button-prev:focus-visible,
+#home_slider .swiper-pagination-bullet:focus-visible {
+  outline: 3px solid hsl(var(--bc-yellow));
+  outline-offset: 4px;
+}
+
+@media only screen and (max-width: 1279px) {
+  #home_slider .swiper-button-next,
+  #home_slider .swiper-button-prev {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  #home_slider .swiper-horizontal > .swiper-pagination-bullets {
+    bottom: 24px !important;
+  }
+
+  /* Energia em fluxo: linha ambiental discreta, removida no mobile para preservar densidade. */
+  #home_slider .bc-hero-flow {
+    position: absolute;
+    z-index: 0;
+    left: clamp(2rem, 8vw, 8rem);
+    bottom: clamp(7rem, 16vh, 10rem);
+    width: min(34rem, 42vw);
+    height: 1px;
+    opacity: 0.32;
+    background: linear-gradient(90deg, transparent, hsl(var(--bc-primary)), hsl(var(--bc-cyan)), transparent);
+  }
+
+  #home_slider .bc-hero-flow::after {
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: 12%;
+    width: 5px;
+    height: 5px;
+    border-radius: 999px;
+    background: hsl(var(--bc-cyan));
+    box-shadow: 0 0 12px rgb(36 210 200 / 0.55);
+    animation: bc-hero-flow-pulse 10s var(--motion-standard) infinite;
+  }
+
+  @keyframes bc-hero-flow-pulse {
+    0%, 100% { transform: translateX(0); opacity: 0.25; }
+    50% { transform: translateX(26rem); opacity: 0.8; }
+  }
+
+  #home_slider .bc-hero-content .bc-hero-step {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0);
+    transition: opacity 450ms var(--motion-standard), transform 450ms var(--motion-standard);
+  }
+
+  #home_slider .swiper-slide-active .bc-hero-content .bc-hero-step {
+    opacity: 1;
+    transform: none;
+  }
+
+  #home_slider .swiper-slide-active .bc-hero-content .bc-hero-step:nth-child(2) { transition-delay: 55ms; }
+  #home_slider .swiper-slide-active .bc-hero-content .bc-hero-step:nth-child(3) { transition-delay: 110ms; }
+  #home_slider .swiper-slide-active .bc-hero-content .bc-hero-step:nth-child(4) { transition-delay: 165ms; }
+  #home_slider .swiper-slide-active .bc-hero-content .bc-hero-step:nth-child(5) { transition-delay: 220ms; }
+
+  @media only screen and (max-width: 767px) {
+    #home_slider .bc-hero-flow {
+      display: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #home_slider .bc-hero-flow::after,
+    #home_slider .bc-hero-content .bc-hero-step {
+      animation: none;
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+  }
+
+  #home_slider .swiper-button-next,
+  #home_slider .swiper-button-prev {
+    display: none;
+  }
+}
+
+#testimony_slider > .swiper-pagination-bullets {
+  position: relative;
+  margin-top: 40px;
+}
+
+@media only screen and (max-width: 600px) {
+  #testimony_slider > .swiper-pagination-bullets {
+    position: relative;
+    margin-top: 20px;
+  }
+}

@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-rh="true">Comercializadora de Energia Solar | Grupo BC Energia</title>
+    <meta name="description" content="Grupo BC Energia: sua comercializadora de energia solar. Economize com o Mercado Livre de Energia e soluções de gestão. Fale com um especialista!">
+
+    <!--
+      Fontes oficiais do Brandbook: Onest (corpo/UI) + Barlow Condensed (títulos).
+      PERFORMANCE 03 — self-hosted em /fonts (WOFF2, subsets latin/latin-ext,
+      font-display: swap em src/styles/fonts.css). Sem chamada a Google Fonts:
+      elimina 2 conexões externas e a cadeia HTML → CSS externo → gstatic.
+      Preload apenas dos dois arquivos críticos da primeira dobra.
+    -->
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/onest-400-latin.woff2" crossorigin />
+    <link rel="preload" as="font" type="font/woff2" href="/fonts/barlow-condensed-700-latin.woff2" crossorigin />
+
+
+    <!-- LCP: apenas o asset correspondente à largura atual recebe preload. -->
+    <link
+      rel="preload"
+      as="image"
+      href="/img/hero/hero-mercado-livre-mobile.webp"
+      media="(max-width: 767px)"
+      fetchpriority="high"
+    />
+    <link
+      rel="preload"
+      as="image"
+      href="/img/hero/hero-mercado-livre.webp"
+      media="(min-width: 768px)"
+      fetchpriority="high"
+    />
+
+
+    <!--
+      PERFORMANCE 04 — Google Tag Manager NÃO é mais carregado aqui.
+      Inicialização única, em idle e apenas em produção:
+      src/lib/integrations/thirdParty.ts (ID em src/config/integrations.ts).
+      Não reintroduzir snippet hardcoded: geraria duplicidade de container.
+    -->
+
+    
+  
+  
+  
+  <meta property="og:image" content="https://grupobcenergia.com.br/bg-home.jpg">
+  <meta name="twitter:image" content="https://grupobcenergia.com.br/bg-home.jpg">
+  <meta data-rh="true" name="twitter:card" content="summary_large_image">
+  <meta data-rh="true" property="og:type" content="website">
+  <meta data-rh="true" property="og:site_name" content="Grupo BC Energia">
+  <meta data-rh="true" property="og:locale" content="pt_BR">
+  <meta data-rh="true" property="og:url" content="https://grupobcenergia.com.br/">
+  <meta property="og:title" content="Comercializadora de Energia Solar | Grupo BC Energia">
+  <meta name="twitter:title" content="Comercializadora de Energia Solar | Grupo BC Energia">
+  <meta property="og:description" content="Grupo BC Energia: sua comercializadora de energia solar. Economize com o Mercado Livre de Energia e soluções de gestão. Fale com um especialista!">
+  <meta name="twitter:description" content="Grupo BC Energia: sua comercializadora de energia solar. Economize com o Mercado Livre de Energia e soluções de gestão. Fale com um especialista!">
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+</head>
+  <body>
+    <!--
+      PERFORMANCE 04 — noscript do GTM removido junto com o snippet do <head>:
+      o container agora é injetado por JS (produção, idle) e o fallback noscript
+      carregaria um segundo container com ID hardcoded, fora da config central.
+    -->
+    <div id="root"></div>
+
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

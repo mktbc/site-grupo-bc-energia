@@ -1,0 +1,38 @@
+{
+  "title": "Turismo",
+  "description": "",
+  "icon": "turismo.svg",
+  "coverUrl": "/img/pages/segmentos/turismo-hero.webp",
+  "introduction": {
+    "img": "/img/pages/segmentos/turismo-intro.webp",
+    "content": [
+      {
+        "title": "Conforto para seus clientes usando energia limpa e renovável",
+        "description": "O setor de turismo enfrenta desafios significativos com os altos custos da conta de energia. Hotéis, pousadas, resorts e outros estabelecimentos turísticos precisam manter a iluminação, climatização, aquecimento de água e diversos equipamentos elétricos funcionando constantemente para garantir o conforto e a satisfação dos hóspedes. Esses custos elevados podem impactar diretamente a lucratividade e limitar a capacidade de investir em melhorias e inovações para atrair mais visitantes. \n \n O Grupo BC Energia oferece soluções eficazes para ajudar o segmento de turismo a reduzir seus custos energéticos sem a necessidade de investimentos iniciais. Através do Mercado Livre de Energia e do consórcio de energia, os estabelecimentos turísticos podem ganhar um alívio no orçamento. Com a economia gerada na conta de energia, é possível investir em melhorias na infraestrutura, modernizar as instalações, implementar tecnologias sustentáveis e aprimorar a experiência dos hóspedes. Assim, o Grupo BC Energia contribui para um setor de turismo mais eficiente, sustentável e lucrativo, permitindo que os empresários se concentrem no crescimento e na inovação de seus negócios, atraindo mais turistas e oferecendo um serviço de qualidade."
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Entendemos a sua necessidade",
+        "description": "Temos experiência com clientes do seu segmento de negócio. Conte com nossa expertise para encontrar a melhor solução de economia para seu empreendimento",
+        "icon": "/img/icons/energy.svg"
+      },
+      {
+        "title": "Adicione SUSTENTABILIDADE ao seu portfólio",
+        "description": "Através do Grupo BC Energia, mostre ao mercado sua preocupação com a sustentabilidade e o meio ambiente, utilizando energia limpas e renováveis",
+        "icon": "/img/icons/solar-energy.svg"
+      },
+      {
+        "title": "Seja destaque no seu segmento",
+        "description": "O uso de fontes de energia renováveis, que geram redução de custo ao mesmo tempo que contribuem para ao meio ambiente é uma tendência dentro de organizações e empresas conscientes, e alinhadas com práticas ESG- Environmental, social, and governance - Governança ambiental, social e corporativa)",
+        "icon": "/img/icons/star.svg"
+      }
+    ]
+  },
+  "cta": {
+    "bgImage": "/img/global/arrendamento-de-usinas.webp",
+    "title": "Somos a maior <span class='text-amber-400'>comercializadora de energia</span> do\n Centro-Oeste e uma das principais independentes do país.",
+    "link": "#contato",
+    "linkText": "Quero economizar"
+  }
+}

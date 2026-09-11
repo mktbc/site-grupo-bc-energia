@@ -1,0 +1,55 @@
+{
+  "title": "Serviço",
+  "description": "",
+  "icon": "servico.svg",
+  "coverUrl": "/img/global/arrendamento-de-usinas.webp",
+  "introduction": {
+    "img": "/img/pages/segmentos/servico.webp",
+    "content": [
+      {
+        "title": "Entregue resultado, sem preocupação com a conta de energia",
+        "description": "As empresas do segmento de serviços enfrentam desafios significativos com os altos custos da conta de energia. Escritórios, consultórios e centros de atendimento dependem de iluminação eficiente, climatização adequada e uma série de equipamentos eletrônicos para manter a operação fluida e oferecer um bom atendimento ao cliente. Esses custos podem impactar o orçamento da empresa, limitando a capacidade de investir em melhorias, expansão e inovação. \n \n O Grupo BC Energia oferece soluções eficazes para reduzir substancialmente os custos com energia, sem a necessidade de investimentos iniciais. Com opções como o Mercado Livre de Energia e consórcios de energia, as empresas podem ganhar um alívio no orçamento. Essa economia permite que os recursos sejam direcionados para aprimorar serviços, expandir operações e investir em novas tecnologias. Assim, o Grupo BC Energia contribui para uma gestão financeira mais eficiente e um crescimento sustentável no setor de serviços."
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Entendemos a sua necessidade",
+        "description": "Temos experiência com clientes do seu segmento de negócio. Conte com nossa expertise para encontrar a melhor solução de economia para seu empreendimento.",
+        "icon": "/img/icons/energy.svg"
+      },
+      {
+        "title": "Adicione SUSTENTABILIDADE ao seu portfólio",
+        "description": "Através do Grupo BC Energia, mostre ao mercado sua preocupação com a sustentabilidade e o meio ambiente, utilizando energia limpas e renováveis",
+        "icon": "/img/icons/solar-energy.svg"
+      },
+      {
+        "title": "Seja destaque no seu segmento",
+        "description": "O uso de fontes de energia renováveis, que geram redução de custo ao mesmo tempo que contribuem para ao meio ambiente é uma tendência dentro de organizações e empresas conscientes, e alinhadas com práticas ESG- Environmental, social, and governance - Governança ambiental, social e corporativa)",
+        "icon": "/img/icons/star.svg"
+      }
+    ]
+  },
+  "cta": {
+    "bgImage": "/img/global/arrendamento-de-usinas.webp",
+    "title": "Somos a maior <span class='text-amber-400'>comercializadora de energia</span> do\n Centro-Oeste e uma das principais independentes do país.",
+    "link": "#contato",
+    "linkText": "Quero economizar"
+  },
+  "resources": {
+    "items": [
+      {
+        "title": "Eficiência Energética",
+        "description": "O Grupo BC Energia oferece soluções que permitem aos gestores do agronegócio otimizar o consumo de energia, reduzindo desperdícios e maximizando a eficiência dos sistemas de irrigação, máquinas agrícolas, iluminação, aquecimento e refrigeração. Essa eficiência resulta em uma significativa diminuição dos custos operacionais."
+      },
+      {
+        "title": "Flexibilidade de Contratação",
+        "description": "Com opções como o MLE (mercado livre de energia) e a ENERGIA POR ASSINATURA, o Grupo BC Energia proporciona alternativas flexíveis para a contratação de energia. Isso permite que as empresas escolham a melhor forma de aquisição energética que se adapte às suas necessidades específicas e variações sazonais de consumo."
+      },
+      {
+        "title": "Vantagem Competitiva",
+        "description": "Ao oferecer soluções que reduzem os custos com energia, o Grupo BC Energia ajuda as empresas do agronegócio a se manterem competitivas no mercado. A redução de custos operacionais pode ser a chave para o sucesso financeiro e a sustentabilidade a longo prazo, permitindo que os negócios prosperem mesmo em um ambiente altamente competitivo."
+      }
+    ],
+    "img": "/img/pages/segmentos/recursos-1.webp"
+  }
+}

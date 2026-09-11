@@ -1,0 +1,55 @@
+{
+  "title": "Residencial",
+  "description": "",
+  "icon": "residencial.svg",
+  "coverUrl": "/img/global/arrendamento-de-usinas.webp",
+  "introduction": {
+    "img": "/img/pages/segmentos/residencial.webp",
+    "content": [
+      {
+        "title": "Conforto no seu lar, economia no seu bolso!",
+        "description": "Muitas pessoas enfrentam desafios crescentes com os altos custos da conta de energia, especialmente em um contexto de aumento das tarifas e maior dependência de dispositivos elétricos. A climatização, iluminação, eletrodomésticos e equipamentos  eletrônicos são essenciais para o conforto e a conveniência do lar, mas podem resultar em despesas energéticas significativas. Esses custos elevados podem impactar o orçamento familiar, limitando a capacidade de economizar e investir em outras necessidades e desejos. \n \n O Grupo BC Energia oferece soluções que permitem a redução substancial de seus custos com energia sem a necessidade de investimentos iniciais. Através de consórcios de energia, as famílias podem economizar na conta de energia sem precisar investir em painéis solares. Com a economia gerada na conta de luz, os proprietários podem direcionar esses recursos para outras áreas importantes, como a melhoria do lar, a educação dos filhos ou até mesmo o lazer. Assim, além de contribuir para um futuro mais sustentável, o Grupo BC Energia ajuda as famílias a alcançarem uma melhor qualidade de vida financeira."
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Sem obras ou transtornos",
+        "description": "Escolha o Grupo BC Energia como o novo fornecedor de energia elétrica na sua residência. Nenhuma obra ou adequação física é necessária. Você continuará usando a rede elétrica (poste, cabeamento) da distribuidora local, porém recebendo nossa energia limpa, renovável e mais barata.",
+        "icon": "/img/icons/energy.svg"
+      },
+      {
+        "title": "Economia garantida",
+        "description": "Com nosso plano de ENERGIA POR ASSINATURA, você tem uma redução percentual garantida em relação ao preço da sua distribuidora local",
+        "icon": "/img/icons/solar-energy.svg"
+      },
+      {
+        "title": "Economia com sustentabilidade",
+        "description": "Ao optar pelo Grupo BC Energia como seu fornecedor de energia elétrica, você pode ficar tranquilo de estar usando a energia de fonte limpa e renovável produzida em nossas usinas solares. O meio ambiente agradece!",
+        "icon": "/img/icons/star.svg"
+      }
+    ]
+  },
+  "cta": {
+    "bgImage": "/img/global/arrendamento-de-usinas.webp",
+    "title": "Somos a maior <span class='text-amber-400'>comercializadora de energia</span> do\n Centro-Oeste e uma das principais independentes do país.",
+    "link": "#contato",
+    "linkText": "Quero economizar"
+  },
+  "resources": {
+    "items": [
+      {
+        "title": "Eficiência Energética",
+        "description": "O Grupo BC Energia oferece soluções que permitem aos gestores do agronegócio otimizar o consumo de energia, reduzindo desperdícios e maximizando a eficiência dos sistemas de irrigação, máquinas agrícolas, iluminação, aquecimento e refrigeração. Essa eficiência resulta em uma significativa diminuição dos custos operacionais."
+      },
+      {
+        "title": "Flexibilidade de Contratação",
+        "description": "Com opções como o MLE (mercado livre de energia) e a ENERGIA POR ASSINATURA, o Grupo BC Energia proporciona alternativas flexíveis para a contratação de energia. Isso permite que as empresas escolham a melhor forma de aquisição energética que se adapte às suas necessidades específicas e variações sazonais de consumo."
+      },
+      {
+        "title": "Vantagem Competitiva",
+        "description": "Ao oferecer soluções que reduzem os custos com energia, o Grupo BC Energia ajuda as empresas do agronegócio a se manterem competitivas no mercado. A redução de custos operacionais pode ser a chave para o sucesso financeiro e a sustentabilidade a longo prazo, permitindo que os negócios prosperem mesmo em um ambiente altamente competitivo."
+      }
+    ],
+    "img": "/img/pages/segmentos/recursos-1.webp"
+  }
+}

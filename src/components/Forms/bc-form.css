@@ -1,0 +1,313 @@
+/* =========================================================
+   Formulário BC Energia — Padrão do site atual
+   Wrapper transparente (herda fundo da página — geralmente teal)
+   Labels brancas + inputs brancos (forçados) + botão amarelo
+   Tipografia: Onest (Brandbook)
+
+   IMPORTANTE — Correção tema escuro:
+   Adicionado `color-scheme: light` + resets de background com
+   !important para garantir que os inputs fiquem SEMPRE brancos,
+   mesmo quando o navegador/SO do usuário estiver em dark mode.
+   Também tratado o autofill do Chrome (que pintaria de amarelado).
+   ========================================================= */
+
+/* Fonte Onest já carregada globalmente em index.html — @import removido para não bloquear o CSS crítico. */
+
+.bc-form {
+  --bc-yellow: #f1c035;
+  --bc-yellow-dark: #e5b22c;
+  --bc-error: #b3261e;
+  --bc-dark: #1a2535;
+  --bc-gray-400: #9aa5ad;
+  --bc-white: #ffffff;
+
+  --bc-radius: 2px;
+  --bc-transition: 0.18s ease;
+
+  font-family:
+    'Onest',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    sans-serif;
+  background: transparent;
+  max-width: 620px;
+  width: 100%;
+  margin: 0 auto;
+  box-sizing: border-box;
+  color-scheme: light;
+  padding: 0 16px 24px;
+}
+
+.bc-form *,
+.bc-form *::before,
+.bc-form *::after {
+  box-sizing: border-box;
+}
+
+/* Força tema claro nos campos — impede que dark mode do SO/navegador
+   pinte os inputs de preto/cinza. */
+.bc-form input,
+.bc-form select,
+.bc-form textarea {
+  color-scheme: light;
+}
+
+/* ---------- Parágrafo de introdução (opcional) ---------- */
+.bc-form .bcf-intro {
+  color: var(--bc-white);
+  text-align: center;
+  font-size: 15px;
+  line-height: 1.5;
+  margin: 0 0 24px;
+  font-weight: 500;
+}
+
+/* ---------- Layout ---------- */
+.bc-form .bcf-row {
+  margin-bottom: 14px;
+}
+
+.bc-form .bcf-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  position: relative;
+}
+
+/* ---------- Labels (brancas, peso 700) ---------- */
+.bc-form .bcf-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--bc-white);
+  letter-spacing: 0.2px;
+  line-height: 1.3;
+}
+
+.bc-form .bcf-required {
+  color: var(--bc-white);
+  margin-left: 1px;
+}
+
+/* ---------- Inputs, selects, textareas (brancos — forçado) ---------- */
+.bc-form .bcf-input,
+.bc-form .bcf-select,
+.bc-form .bcf-textarea {
+  font-family:
+    'Onest',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--bc-dark) !important;
+  background-color: var(--bc-white) !important;
+  background: var(--bc-white) !important;
+  -webkit-text-fill-color: var(--bc-dark);
+  border: none;
+  border-radius: var(--bc-radius);
+  padding: 11px 14px;
+  width: 100%;
+  transition: box-shadow var(--bc-transition);
+  outline: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+.bc-form .bcf-input::placeholder,
+.bc-form .bcf-textarea::placeholder {
+  color: var(--bc-gray-400) !important;
+  -webkit-text-fill-color: var(--bc-gray-400);
+  font-weight: 400;
+  opacity: 1;
+}
+
+.bc-form .bcf-input:focus,
+.bc-form .bcf-select:focus,
+.bc-form .bcf-textarea:focus {
+  box-shadow: 0 0 0 2px hsl(var(--bc-primary));
+  background-color: var(--bc-white) !important;
+}
+
+.bc-form .bcf-input.error,
+.bc-form .bcf-select.error,
+.bc-form .bcf-textarea.error {
+  box-shadow: 0 0 0 2px var(--bc-error);
+}
+
+/* Autofill do Chrome — sem isso, o Chrome pinta os campos de amarelado */
+.bc-form .bcf-input:-webkit-autofill,
+.bc-form .bcf-input:-webkit-autofill:hover,
+.bc-form .bcf-input:-webkit-autofill:focus,
+.bc-form .bcf-textarea:-webkit-autofill,
+.bc-form .bcf-select:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px var(--bc-white) inset !important;
+  -webkit-text-fill-color: var(--bc-dark) !important;
+  caret-color: var(--bc-dark);
+}
+
+.bc-form .bcf-error-text {
+  color: var(--bc-error);
+  font-size: 12px;
+  margin-top: 2px;
+  font-weight: 600;
+}
+
+/* ---------- Select customizado ---------- */
+.bc-form .bcf-select {
+  padding-right: 36px;
+  cursor: pointer;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' stroke='%231A2535' stroke-width='1.8' fill='none' stroke-linecap='round' stroke-linejoin='round'/></svg>") !important;
+  background-repeat: no-repeat !important;
+  background-position: right 14px center !important;
+  background-color: var(--bc-white) !important;
+}
+
+.bc-form .bcf-select option {
+  background: var(--bc-white);
+  color: var(--bc-dark);
+}
+
+/* ---------- Textarea ---------- */
+.bc-form .bcf-textarea {
+  resize: vertical;
+  min-height: 90px;
+  line-height: 1.5;
+}
+
+/* ---------- Botão de envio (amarelo, uppercase) ---------- */
+.bc-form .bcf-submit-wrap {
+  margin-top: 22px;
+}
+
+.bc-form .bcf-submit {
+  font-family:
+    'Onest',
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--bc-dark) !important;
+  background: var(--bc-yellow) !important;
+  border: none;
+  border-radius: var(--bc-radius);
+  padding: 14px 24px;
+  cursor: pointer;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 0.4px;
+  transition:
+    background var(--bc-transition),
+    transform var(--bc-transition);
+}
+
+.bc-form .bcf-submit:hover:not(:disabled) {
+  background: var(--bc-yellow-dark) !important;
+}
+
+.bc-form .bcf-submit:active:not(:disabled) {
+  transform: scale(0.99);
+}
+
+.bc-form .bcf-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* ---------- Responsivo ---------- */
+@media (max-width: 560px) {
+  .bc-form .bcf-intro {
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+}
+
+
+/* ---------- Bloco 05: acessibilidade e área de toque ---------- */
+.bc-form .bcf-input,
+.bc-form .bcf-select,
+.bc-form .bcf-textarea {
+  min-height: 44px;
+}
+
+.bc-form .bcf-input:focus-visible,
+.bc-form .bcf-select:focus-visible,
+.bc-form .bcf-textarea:focus-visible,
+.bc-form .bcf-submit:focus-visible {
+  outline: 3px solid var(--bc-yellow);
+  outline-offset: 2px;
+}
+
+/* Erro não é indicado apenas por cor: ícone + texto */
+.bc-form .bcf-error-text::before {
+  content: '\26A0';
+  margin-right: 6px;
+  font-weight: 700;
+}
+
+.bc-form .bcf-input.error,
+.bc-form .bcf-select.error,
+.bc-form .bcf-textarea.error {
+  box-shadow: 0 0 0 2px var(--bc-error);
+  border-bottom: 3px solid var(--bc-error);
+}
+
+.bc-form .bcf-submit {
+  min-height: 48px;
+}
+
+/* ---------- FRONT-END 14: tema claro (form dentro de card do DS) ----------
+   Quando o formulário é renderizado sobre uma superfície clara (ProductFormSection),
+   labels e textos precisam de contraste. Apenas apresentação: nenhuma classe,
+   payload ou lógica dos formulários foi alterada. */
+.bc-form-surface .bc-form .bcf-label,
+.bc-form-surface .bc-form .bcf-required,
+.bc-form-surface .bc-form .bcf-intro {
+  color: hsl(var(--text-primary));
+}
+
+.bc-form-surface .bc-form .bcf-intro {
+  color: hsl(var(--text-secondary));
+}
+
+.bc-form-surface .bc-form .bcf-input,
+.bc-form-surface .bc-form .bcf-select,
+.bc-form-surface .bc-form .bcf-textarea {
+  border: 1px solid hsl(var(--border-default));
+  font-size: 16px;
+}
+
+.bc-form-surface .bc-form .bcf-input:hover,
+.bc-form-surface .bc-form .bcf-select:hover,
+.bc-form-surface .bc-form .bcf-textarea:hover {
+  border-color: hsl(var(--border-strong));
+}
+
+.bc-form-surface .bc-form .bcf-input:focus,
+.bc-form-surface .bc-form .bcf-select:focus,
+.bc-form-surface .bc-form .bcf-textarea:focus {
+  border-color: hsl(var(--bc-primary));
+  box-shadow: 0 0 0 3px hsl(var(--bc-primary) / 0.25);
+}
+
+.bc-form-surface .bc-form .bcf-input.error,
+.bc-form-surface .bc-form .bcf-select.error,
+.bc-form-surface .bc-form .bcf-textarea.error {
+  border-color: hsl(var(--error));
+  border-bottom-color: hsl(var(--error));
+  box-shadow: 0 0 0 2px hsl(var(--error) / 0.35);
+}
+
+.bc-form-surface .bc-form .bcf-error-text {
+  color: hsl(var(--error));
+}
+
+.bc-form-surface .bc-form .bcf-input:focus-visible,
+.bc-form-surface .bc-form .bcf-select:focus-visible,
+.bc-form-surface .bc-form .bcf-textarea:focus-visible,
+.bc-form-surface .bc-form .bcf-submit:focus-visible {
+  outline: 3px solid hsl(var(--bc-primary));
+}

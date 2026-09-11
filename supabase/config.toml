@@ -1,0 +1,11 @@
+[functions.form-webhook]
+verify_jwt = false
+
+[functions.salesforce-numbers]
+verify_jwt = false
+
+[functions.blog-posts]
+verify_jwt = false
+
+[functions.segments]
+verify_jwt = false

@@ -1,0 +1,6 @@
+export { default as About } from './About'
+export { default as AboutSegment } from './AboutSegment'
+export { default as Benefits } from './Benefits'
+export { default as Cta } from './Cta'
+export { default as HowItWorks } from './HowItWorks'
+export { default as Resources } from './Resources'

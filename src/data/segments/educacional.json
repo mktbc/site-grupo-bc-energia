@@ -1,0 +1,38 @@
+{
+  "title": "Educacional",
+  "description": "",
+  "icon": "educacional.svg",
+  "coverUrl": "/img/global/arrendamento-de-usinas.webp",
+  "introduction": {
+    "img": "/img/pages/segmentos/educacional.webp",
+    "content": [
+      {
+        "title": "Educação com economia na conta de energia",
+        "description": "Instituições de ensino enfrentam desafios significativos com os altos custos da conta de energia. Salas de aula, laboratórios, bibliotecas, áreas comuns e sistemas de climatização demandam um consumo constante e elevado de energia elétrica para garantir um ambiente de aprendizado confortável e seguro. Esses custos podem impactar o orçamento da instituição e limitar a capacidade de investir em infraestrutura, tecnologia educacional e outros recursos essenciais para a qualidade do ensino. \n \n O Grupo BC Energia oferece soluções eficazes para ajudar o segmento de educação a reduzir seus custos energéticos sem a necessidade de investimentos iniciais. Através do Mercado Livre de Energia e do consórcio de energia, escolas, universidades e centros de ensino podem ganhar um alívio no orçamento. Com a economia gerada na conta de energia, é possível investir em melhorias na infraestrutura educacional, como a modernização de laboratórios, aquisição de equipamentos tecnológicos e implementação de práticas sustentáveis. Assim, o Grupo BC Energia contribui para um ambiente educacional mais eficiente, sustentável e inovador, permitindo que as instituições se concentrem no crescimento e na qualidade do ensino."
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Entendemos a sua necessidade",
+        "description": "Temos experiência com clientes do seu segmento de negócio. Conte com nossa expertise para encontrar a melhor solução de economia para seu empreendimento",
+        "icon": "/img/icons/energy.svg"
+      },
+      {
+        "title": "Adicione SUSTENTABILIDADE ao seu portfólio",
+        "description": "Através do Grupo BC Energia, mostre ao mercado sua preocupação com a sustentabilidade e o meio ambiente, utilizando energia limpas e renováveis",
+        "icon": "/img/icons/solar-energy.svg"
+      },
+      {
+        "title": "Seja destaque no seu segmento",
+        "description": "O uso de fontes de energia renováveis, que geram redução de custo ao mesmo tempo que contribuem para ao meio ambiente é uma tendência dentro de organizações e empresas conscientes, e alinhadas com práticas ESG- Environmental, social, and governance - Governança ambiental, social e corporativa)",
+        "icon": "/img/icons/star.svg"
+      }
+    ]
+  },
+  "cta": {
+    "bgImage": "/img/global/arrendamento-de-usinas.webp",
+    "title": "Somos a maior <span class='text-amber-400'>comercializadora de energia</span> do\n Centro-Oeste e uma das principais independentes do país.",
+    "link": "#contato",
+    "linkText": "Quero economizar"
+  }
+}

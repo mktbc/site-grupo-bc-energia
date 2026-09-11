@@ -1,0 +1,11 @@
+# Grupo BC Energia — robots.txt (preview/staging)
+#
+# Gerado automaticamente por scripts/generate-sitemap.ts (predev/prebuild).
+# Não editar manualmente. Build de produção: VITE_SEO_ENV=production.
+#
+# Camada ADICIONAL de proteção do ambiente duplicado. A proteção principal
+# continua sendo <meta name="robots" content="noindex,nofollow"> emitido em
+# runtime por host (src/config/site.ts).
+
+User-agent: *
+Disallow: /

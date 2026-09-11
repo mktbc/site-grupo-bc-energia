@@ -1,0 +1,752 @@
+@import './fonts.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================
+   Design Tokens — Grupo BC Energia (Brandbook)
+   Valores em HSL (sem hsl()) para uso com <alpha-value> no Tailwind.
+   ========================================================= */
+:root {
+  /* Marca */
+  --bc-primary: 175 70% 31%; /* #18857D */
+  --bc-primary-dark: 174 71% 25%;
+  --bc-primary-hover: 174 71% 25%;
+  --bc-dark: 218 28% 20%; /* #242F40 */
+  --bc-yellow: 44.4 87% 57.6%; /* #F1C035 exato (44 87% 58% arredondava para #F1BF37) */
+  --bc-accent: 44.4 87% 57.6%; /* #F1C035 (alias semântico) */
+  --bc-cyan: 177 70% 48%; /* #24D2C8 */
+  --bc-green-light: 175 71% 36%; /* #1B9D93 */
+  --bc-gray: 0 0% 90%; /* #E5E5E5 */
+  --bc-white: 0 0% 100%;
+
+  /* =========================================================
+     SISTEMA ÚNICO DE TRATAMENTO FOTOGRÁFICO
+     Apenas 3 famílias: institucional (#18857D), escuro (#242F40)
+     e misto (gradiente de leitura #242F40 → transparente).
+     ========================================================= */
+  /* Larguras e leitura — fonte única de verdade */
+  --text-reading-width: 64ch;
+  --text-intro-width: 680px;
+  --heading-wide: 700px;
+  --heading-medium: 600px;
+  --body-leading: 1.6;
+
+  --overlay-institutional-soft: hsl(var(--bc-primary) / 0.1);
+  --overlay-institutional-medium: hsl(var(--bc-primary) / 0.16);
+  --overlay-dark-soft: hsl(var(--bc-dark) / 0.24);
+  --overlay-dark-medium: hsl(var(--bc-dark) / 0.32);
+  --overlay-readable-left: linear-gradient(
+    90deg,
+    hsl(var(--bc-dark) / 0.94) 0%,
+    hsl(var(--bc-dark) / 0.82) 32%,
+    hsl(var(--bc-dark) / 0.46) 62%,
+    hsl(var(--bc-dark) / 0.08) 100%
+  );
+  --overlay-readable-right: linear-gradient(
+    270deg,
+    hsl(var(--bc-dark) / 0.94) 0%,
+    hsl(var(--bc-dark) / 0.82) 32%,
+    hsl(var(--bc-dark) / 0.46) 62%,
+    hsl(var(--bc-dark) / 0.08) 100%
+  );
+  --overlay-readable-bottom: linear-gradient(
+    180deg,
+    hsl(var(--bc-dark) / 0) 38%,
+    hsl(var(--bc-dark) / 0.65) 66%,
+    hsl(var(--bc-dark) / 0.95) 100%
+  );
+
+
+
+  /* Semânticos */
+  --page: 0 0% 100%;
+  --bc-background: 0 0% 100%;
+  --surface: 0 0% 100%;
+  --bc-surface: 0 0% 100%;
+  --surface-muted: 150 6% 96%;
+  --surface-soft: 150 8% 97%; /* transição suave entre blocos brancos */
+  --surface-base: 0 0% 100%;
+  --surface-card: 0 0% 100%;
+  --surface-subtle: 150 10% 98%;
+  --surface-elevated: 0 0% 100%;
+  --surface-highlight: 175 70% 97%;
+  --surface-dark: 218 28% 20%;
+  /* Card sólido sobre superfície escura (sem transparência) */
+  --surface-dark-card: 215 35% 17%;
+
+  /* GLASS PANEL — especificação única de "texto sobre fotografia".
+     Fotografia visível + desfoque + borda sutil + elevação. */
+  --glass-bg: hsl(var(--bc-dark) / 0.66);
+  --glass-bg-fallback: hsl(var(--bc-dark) / 0.86);
+  --glass-blur: blur(12px) saturate(120%);
+  --glass-border: 1px solid rgb(255 255 255 / 0.12);
+  --glass-shadow: 0 18px 42px rgb(15 23 42 / 0.24);
+  --glass-radius: 22px;
+  --glass-radius-sm: 16px;
+
+
+  --surface-brand: 175 70% 31%;
+  --text-primary: 218 28% 20%;
+  --bc-text: 218 28% 20%;
+  --text-secondary: 218 12% 40%;
+  --bc-text-muted: 218 12% 40%;
+  --text-muted: 218 10% 52%;
+  --text-inverse: 0 0% 100%;
+  --text-accent: 174 71% 25%;
+  --border-subtle: 0 0% 88%;
+  --border-default: 0 0% 82%;
+  --border-strong: 218 15% 62%;
+  --border-interactive: 175 70% 31%;
+  --border-highlight: 177 70% 48%;
+  --bc-border: 0 0% 88%;
+  --success: 156 62% 32%;
+  --bc-success: 156 62% 32%;
+  --warning: 36 84% 38%;
+  --info: 205 72% 34%;
+  --error: 0 65% 45%;
+  --bc-error: 0 65% 45%;
+  --focus: 44 87% 58%;
+  --bc-focus: 44 87% 58%;
+
+  /* Ritmo visual — raio */
+  --bc-radius: 0.75rem;
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+
+  /* Raio de MÍDIA — separado do raio de componentes de interface.
+     Quanto maior e mais institucional a fotografia, menor o raio. */
+  --bc-radius-media-none: 0px;
+  --bc-radius-media-lg: 8px;   /* imagem protagonista / panorama */
+  --bc-radius-media-md: 12px;  /* editorial média, 4:5, thumbnail */
+  --bc-radius-ui: 14px;        /* componentes interativos */
+
+  /* Sombras corporativas (família única, sutil) */
+  --shadow-sm: 0 1px 2px 0 rgb(36 47 64 / 0.06);
+  --shadow-md: 0 1px 2px 0 rgb(36 47 64 / 0.06), 0 8px 24px -12px rgb(36 47 64 / 0.18);
+  --shadow-lg: 0 2px 4px 0 rgb(36 47 64 / 0.08), 0 20px 42px -18px rgb(36 47 64 / 0.32);
+  --shadow-xs: 0 1px 2px rgb(36 47 64 / 0.04);
+  --shadow-energy: 0 10px 34px -20px rgb(24 133 125 / 0.28);
+
+  /* Destaques energéticos — reservados a estados ativos e métricas. */
+  --glow-green: 0 0 0 1px rgb(24 133 125 / 0.12), 0 8px 28px -18px rgb(24 133 125 / 0.32);
+  --glow-turquoise: 0 0 0 1px rgb(36 210 200 / 0.14), 0 8px 28px -18px rgb(36 210 200 / 0.28);
+  --glow-yellow: 0 0 0 1px rgb(241 192 53 / 0.16), 0 8px 24px -18px rgb(241 192 53 / 0.3);
+
+  /* Motion */
+  --motion-fast: 150ms;
+  --motion-normal: 250ms;
+  --motion-slow: 400ms;
+  --motion-ease: cubic-bezier(0.2, 0, 0.2, 1);
+  --motion-base: 250ms;
+  --motion-standard: cubic-bezier(0.2, 0, 0.2, 1);
+  --motion-emphasized: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Container */
+  --container-max: 1200px;
+  --section-gap: clamp(4.5rem, 8vw, 8rem);
+}
+
+
+html {
+  scroll-behavior: smooth;
+}
+
+:where(section[id], main[id], header[id], footer[id]) {
+  scroll-margin-top: 5rem;
+}
+
+body {
+  font-family: 'Onest', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  color: hsl(var(--text-primary));
+  background-color: hsl(var(--page));
+  -webkit-font-smoothing: antialiased;
+  background-image: radial-gradient(circle at 15% 0%, rgb(36 210 200 / 0.035), transparent 32rem);
+}
+
+/* Escala tipográfica: títulos em Barlow Condensed (destaque),
+   textos em Onest (leitura). A semântica H1/H2/H3 não muda. */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Barlow Condensed', 'Onest', system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.005em;
+}
+
+p,
+li,
+label,
+input,
+select,
+textarea,
+button {
+  font-family: 'Onest', system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+
+
+/* Foco visível consistente em todo o site */
+:where(a, button, input, select, textarea, [tabindex]):focus-visible {
+  outline: 3px solid hsl(var(--focus));
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@layer components {
+  /* Linguagem única de card (soluções, segmentos, regiões, conteúdo, métricas, benefícios) */
+  .bc-card {
+    @apply rounded-card border border-border-subtle bg-surface-card p-6 shadow-sm transition-[transform,box-shadow,border-color] duration-normal;
+  }
+  .bc-card-interactive {
+    @apply hover:-translate-y-0.5 hover:border-bc-primary/25 hover:shadow-md focus-within:-translate-y-0.5 focus-within:shadow-md;
+  }
+
+  /* Card sólido em superfície escura (métricas, blocos navy) */
+  .bc-card-dark {
+    @apply rounded-card border border-bc-cyan/20 bg-surface-dark-card p-6 shadow-md transition-[transform,box-shadow,border-color] duration-normal;
+  }
+
+  /* ---------------------------------------------------------------
+     PAINEL PROTAGONISTA — única especificação de "texto sobre foto".
+     Vale em todos os breakpoints: muda a dimensão, nunca a identidade.
+     --------------------------------------------------------------- */
+  .media-panel {
+    @apply relative z-[2] p-5 text-text-inverse sm:p-6;
+  }
+  .media-panel-sm {
+    @apply relative z-[2] px-4 py-3 text-text-inverse;
+  }
+  .bc-panel-glass {
+    @apply media-panel;
+  }
+
+  /* Vidro real: fotografia visível através do painel, com desfoque. */
+  .media-panel,
+  .media-panel-sm,
+  .bc-panel-glass,
+  .hero-panel {
+    background-color: var(--glass-bg);
+    -webkit-backdrop-filter: var(--glass-blur);
+    backdrop-filter: var(--glass-blur);
+    border: var(--glass-border);
+    box-shadow: var(--glass-shadow);
+    border-radius: var(--glass-radius);
+  }
+  .media-panel-sm {
+    border-radius: var(--glass-radius-sm);
+  }
+  /* Sem suporte a backdrop-filter: legibilidade acima do efeito. */
+  @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .media-panel,
+    .media-panel-sm,
+    .bc-panel-glass,
+    .hero-panel {
+      background-color: var(--glass-bg-fallback);
+    }
+  }
+
+
+
+  /* Container único do site — 3 larguras proporcionais ao conteúdo */
+  .bc-container {
+    @apply mx-auto w-full max-w-container px-6 md:px-8 lg:px-8;
+  }
+  /* Blocos de leitura e composições densas (métricas, editorial). */
+  .bc-container-editorial {
+    @apply mx-auto w-full max-w-[1120px] px-6 md:px-8;
+  }
+  /* Blocos curtos: FAQ, formulários, CTA de fechamento. */
+  .bc-container-narrow {
+    @apply mx-auto w-full max-w-[900px] px-6 md:px-8;
+  }
+}
+
+@layer utilities {
+  .bc-focus-ring {
+    @apply focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-focus focus-visible:ring-offset-2;
+  }
+
+  /*
+     Espaçamento vertical de seção — 3 escalas únicas.
+     Protagonista: 80px (mobile) → 144px (desktop)
+     Intermediária: 64px → 104px
+     Apoio: 48px → 72px
+     `bc-section-*` são apelidos das mesmas escalas: nenhum valor solto. */
+  .bc-section-sm {
+    @apply py-10 md:py-12 lg:py-[56px];
+  }
+  .bc-section-md {
+    @apply py-12 md:py-14 lg:py-[72px];
+  }
+  .bc-section-lg {
+    @apply py-16 md:py-20 lg:py-[104px];
+  }
+  .bc-section-xl {
+    @apply py-20 md:py-[112px] lg:py-[144px];
+  }
+
+  /* Níveis de hierarquia de seção (VISUAL SYSTEM 07) */
+  .bc-level-lead {
+    @apply py-12 md:py-14 lg:py-[80px];
+  }
+  .bc-level-mid {
+    @apply py-12 md:py-14 lg:py-[72px];
+  }
+  .bc-level-support {
+    @apply py-10 md:py-12 lg:py-[56px];
+  }
+
+
+
+  /* =========================================================
+     Tratamento fotográfico institucional (unidade cromática)
+     Camada RGBA simples — sem mix-blend-mode, sem opacity na <img>.
+     Uso: wrapper com `.bc-photo` em volta da <img>.
+     ========================================================= */
+  .bc-photo {
+    @apply relative overflow-hidden;
+  }
+  .bc-photo::after {
+    content: '';
+    @apply pointer-events-none absolute inset-0 z-[1];
+    background: var(--overlay-institutional-medium);
+  }
+  .bc-photo-soft::after {
+    background: var(--overlay-institutional-soft);
+  }
+  /* Conteúdo sobre a fotografia nunca recebe o overlay. */
+  .bc-photo > :not(img) {
+    @apply z-[2];
+  }
+
+  /* Camadas de overlay reutilizáveis (usar via <PhotoOverlay />). */
+  .bc-ovl {
+    @apply pointer-events-none absolute inset-0 z-[1];
+  }
+  .bc-ovl-institutional {
+    background: var(--overlay-institutional-soft);
+  }
+  .bc-ovl-institutional-medium {
+    background: var(--overlay-institutional-medium);
+  }
+  .bc-ovl-dark {
+    background: var(--overlay-dark-soft);
+  }
+  .bc-ovl-dark-medium {
+    background: var(--overlay-dark-medium);
+  }
+  .bc-ovl-readable-left {
+    background: var(--overlay-readable-bottom);
+  }
+  @screen sm {
+    .bc-ovl-readable-left {
+      background: var(--overlay-readable-left);
+    }
+  }
+  .bc-ovl-readable-right {
+    background: var(--overlay-readable-bottom);
+  }
+  @screen sm {
+    .bc-ovl-readable-right {
+      background: var(--overlay-readable-right);
+    }
+  }
+  .bc-ovl-readable-bottom {
+    background: var(--overlay-readable-bottom);
+  }
+  .bc-ovl-solution {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--bc-dark) / 0) 28%,
+      hsl(var(--bc-dark) / 0.22) 52%,
+      hsl(var(--bc-dark) / 0.7) 75%,
+      hsl(var(--bc-dark) / 0.98) 100%
+    );
+  }
+  .bc-ovl-segment {
+    background: linear-gradient(
+      180deg,
+      hsl(var(--bc-dark) / 0) 30%,
+      hsl(var(--bc-dark) / 0.16) 50%,
+      hsl(var(--bc-dark) / 0.68) 75%,
+      hsl(var(--bc-dark) / 0.98) 100%
+    );
+  }
+
+  /* =========================================================
+     Linguagem fotográfica — 3 formatos oficiais
+     16:9 (panorama) · 4:5 (vertical editorial) · full-bleed.
+     Aplicar diretamente na <img>. Sem sombra; raio discreto.
+     ========================================================= */
+  .bc-fmt-landscape {
+    @apply aspect-[4/5] w-full object-cover sm:aspect-[16/9];
+    border-radius: var(--bc-radius-media-lg);
+  }
+  .bc-fmt-portrait {
+    @apply aspect-[4/5] w-full object-cover;
+    border-radius: var(--bc-radius-media-md);
+  }
+  .bc-fmt-fullbleed {
+    @apply aspect-[4/5] w-full object-cover sm:aspect-[16/9];
+    border-radius: 0;
+  }
+
+
+
+
+  /* =========================================================
+     VISUAL SYSTEM 01 — Escala tipográfica global
+     Uma única fonte de verdade. Páginas não devem inventar
+     font-sizes locais: usar sempre um destes tokens.
+     ========================================================= */
+  .t-display {
+    /* Somente hero excepcional / manifesto. */
+    @apply font-display text-[clamp(2.5rem,5.2vw,4.5rem)] font-bold uppercase leading-[0.98] tracking-[0.005em];
+      text-wrap: balance;
+  }
+  .t-h1 {
+    @apply font-display text-[clamp(2.25rem,4.4vw,4.25rem)] font-bold uppercase leading-[1] tracking-[0.005em];
+      text-wrap: balance;
+  }
+  .t-h2 {
+    @apply font-display text-[clamp(1.75rem,2.8vw,2.5rem)] font-bold uppercase leading-[1.05] tracking-[0.005em];
+      text-wrap: balance;
+  }
+  /* =========================================================
+     VISUAL SYSTEM 07 — Níveis de hierarquia de seção
+     lead (protagonista) → mid (intermediária) → support (apoio).
+     Diferença por escala, espaço e densidade — nunca por bordas
+     ou sombras extras.
+     ========================================================= */
+  .t-h2-lead {
+    @apply font-display text-[clamp(1.875rem,3.4vw,3rem)] font-bold uppercase leading-[1.02] tracking-[0.005em];
+    text-wrap: balance;
+  }
+  .t-h2-mid {
+    @apply font-display text-[clamp(1.6875rem,2.4vw,2.375rem)] font-bold uppercase leading-[1.06] tracking-[0.005em];
+    text-wrap: balance;
+  }
+  .t-h2-support {
+    @apply font-display text-[clamp(1.375rem,1.6vw,1.875rem)] font-semibold uppercase leading-[1.1] tracking-[0.005em];
+    text-wrap: balance;
+  }
+
+  .t-h3 {
+    @apply font-display text-[clamp(1.25rem,1.4vw,1.5rem)] font-semibold uppercase leading-[1.12];
+      text-wrap: balance;
+  }
+  /* Título editorial de subseção sem caixa alta. */
+  .t-h3-editorial {
+    @apply font-display text-[clamp(1.25rem,1.4vw,1.5rem)] font-semibold leading-snug;
+      text-wrap: balance;
+  }
+  .t-h4 {
+    @apply font-sans text-[1.0625rem] font-semibold leading-snug;
+      text-wrap: balance;
+  }
+  /* Item com linguagem editorial (display) — mesmo tamanho do H4. */
+  .t-h4-display {
+    @apply font-display text-[1.25rem] font-semibold uppercase leading-[1.12];
+      text-wrap: balance;
+  }
+  .t-body-lg {
+    @apply text-[clamp(1.0625rem,0.5vw,1.125rem)] font-normal leading-[1.6];
+    text-wrap: pretty;
+  }
+  .t-body {
+    @apply text-[1rem] font-normal;
+    line-height: var(--body-leading);
+    text-wrap: pretty;
+  }
+  .t-body-sm,
+  .t-small {
+    @apply text-[0.9375rem] leading-[1.6];
+    text-wrap: pretty;
+  }
+  .t-label {
+    @apply text-[0.875rem] font-semibold leading-snug;
+  }
+  .t-caption {
+    @apply text-caption uppercase tracking-wide;
+  }
+  .t-eyebrow {
+    @apply text-[clamp(0.75rem,0.5vw,0.8125rem)] font-semibold uppercase leading-normal tracking-[0.12em] text-bc-primary;
+  }
+  /* Camada textual comum aos banners internos — mesma linguagem do Hero. */
+  .hero-eyebrow {
+    @apply inline-flex w-fit items-center rounded-sm border border-white/10 bg-bc-dark/80 px-2.5 py-1 t-eyebrow !text-bc-yellow;
+  }
+
+  .hero-panel {
+    @apply relative z-10 w-full p-5 sm:w-[72%] sm:p-7 lg:w-full lg:max-w-[42rem] lg:p-8;
+  }
+
+  .hero-panel--split {
+    @apply lg:max-w-none;
+  }
+  .hero-panel--wide {
+    @apply max-w-none;
+  }
+  @screen lg {
+    .hero-panel--wide {
+      max-width: min(52vw, 42rem);
+    }
+  }
+  .hero-title {
+    @apply t-h1 max-w-[16ch] text-white text-balance;
+    /* Mesmo teto do H1 da Home (64px). */
+    font-size: clamp(2.25rem, 4.2vw, 4rem);
+  }
+  /* Segunda linha do título: acento amarelo institucional (headline bicolor). */
+  .hero-title-accent {
+    @apply text-bc-yellow;
+  }
+
+  .hero-description {
+    @apply mt-4 max-w-[42ch] t-body-lg text-white/90;
+  }
+  .hero-actions {
+    @apply mt-7 flex flex-col items-stretch gap-4 sm:flex-row sm:items-center sm:gap-5;
+  }
+  .bc-eyebrow-on-image {
+    @apply inline-flex w-fit rounded-sm bg-bc-dark/55 px-2 py-1 text-white;
+    text-shadow: 0 1px 8px rgb(0 0 0 / 0.3);
+  }
+
+  /* Métricas institucionais — escala própria, isolada dos headings. */
+  .t-metric-xl {
+    @apply font-display text-[clamp(2.75rem,5.2vw,4rem)] font-bold leading-[0.92] tracking-tight;
+      text-wrap: balance;
+  }
+  .t-metric-lg {
+    @apply font-display text-[clamp(2.25rem,3.6vw,3.25rem)] font-bold leading-[0.96] tracking-tight;
+      text-wrap: balance;
+  }
+  .t-metric-md {
+    @apply font-display text-[clamp(1.75rem,2.6vw,2.5rem)] font-bold leading-none;
+      text-wrap: balance;
+  }
+  /* Unidade (%, MW, mil, R$) sempre menor que o número principal. */
+  .t-metric-unit {
+    @apply ml-1 align-baseline text-[0.5em] font-semibold tracking-normal;
+  }
+  .t-metric-label {
+    @apply font-sans text-[0.9375rem] font-medium leading-snug;
+      text-wrap: pretty;
+  }
+
+
+  /* Rótulo de ação (links secundários, "saiba mais") */
+  .t-action-label {
+    @apply font-sans text-[0.8125rem] font-semibold uppercase tracking-[0.08em];
+  }
+
+  /* Larguras de leitura padronizadas */
+  .measure-body {
+    max-width: var(--text-reading-width);
+    text-wrap: pretty;
+  }
+  .measure-intro {
+    max-width: var(--text-intro-width);
+    text-wrap: pretty;
+  }
+  .measure-title {
+    max-width: var(--heading-wide);
+  }
+  .measure-title-tight {
+    max-width: var(--heading-medium);
+  }
+
+  /* Composição premium: planos sutis em vez de uma sequência de caixas. */
+  .bc-depth-panel {
+    @apply relative overflow-hidden rounded-[24px] border border-white/15 shadow-lg;
+    background:
+      linear-gradient(135deg, rgb(255 255 255 / 0.12), transparent 48%),
+      hsl(var(--bc-dark));
+  }
+  .bc-depth-panel::before {
+    content: '';
+    @apply pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full;
+    background: radial-gradient(circle, rgb(36 210 200 / 0.2), transparent 68%);
+  }
+  .bc-editorial-rule {
+    @apply relative pl-5;
+  }
+  .bc-editorial-rule::before {
+    content: '';
+    @apply absolute bottom-1 left-0 top-1 w-1 rounded-full bg-bc-yellow;
+  }
+  .bc-section-transition {
+    position: relative;
+  }
+  .bc-section-transition::after {
+    content: '';
+    position: absolute;
+    left: 6%;
+    right: 6%;
+    bottom: -1px;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--bc-primary) / 0.18), transparent);
+  }
+
+}
+
+
+
+
+.loader {
+  width: 15px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  animation: l5 1s infinite linear alternate;
+}
+
+
+@keyframes l5 {
+  0% {
+    box-shadow:
+      20px 0 #0d9488,
+      -20px 0 rgba(13, 148, 136, 0.2);
+    background: #0d9488;
+  }
+  33% {
+    box-shadow:
+      20px 0 #0d9488,
+      -20px 0 rgba(13, 148, 136, 0.2);
+    background: rgba(13, 148, 136, 0.2);
+  }
+  66% {
+    box-shadow:
+      20px 0 rgba(13, 148, 136, 0.2),
+      -20px 0 #0d9488;
+    background: rgba(13, 148, 136, 0.2);
+  }
+  100% {
+    box-shadow:
+      20px 0 rgba(13, 148, 136, 0.2),
+      -20px 0 #0d9488;
+    background: #0d9488;
+  }
+}
+
+@media screen and (min-width: 1500px) and (max-width: 1600px) {
+  .container {
+    max-width: 1300px;
+  }
+}
+
+@media screen and (min-width: 1278px) and (max-width: 1350px) {
+  #home,
+  nav,
+  section {
+  }
+}
+
+@media screen and (max-width: 1100px) and (min-width: 1023px) {
+  #home,
+  nav,
+  section {
+  }
+}
+
+@media screen and (max-width: 763px) {
+  section:not(#home):not(#fotos):not(#local) {
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Hero background responsivo (performance de imagens)                  */
+/* Desktop usa a arte completa; ≤1024px carrega a variante otimizada.   */
+/* ------------------------------------------------------------------ */
+.hero-bg {
+  background-image: var(--hero-bg);
+}
+
+@media (max-width: 1024px) {
+  .hero-bg {
+    background-image: var(--hero-bg-mobile, var(--hero-bg));
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Revelação de conteúdo — CSS puro (substitui Framer Motion)           */
+/* Usado com o hook useReveal (IntersectionObserver nativo).            */
+/* ------------------------------------------------------------------ */
+.bc-reveal {
+  opacity: 0;
+  transform: translate3d(0, 16px, 0);
+  transition:
+    opacity 0.45s var(--motion-standard),
+    transform 0.45s var(--motion-standard);
+  will-change: opacity, transform;
+}
+
+.bc-reveal.is-visible {
+  opacity: 1;
+  transform: none;
+  will-change: auto;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bc-reveal,
+  .bc-reveal.is-visible {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ------------------------------------------------------------------ */
+/* Composição editorial — offsets e breakout controlados                */
+/* Assimetria via grid/espaço, sem JavaScript e sem overflow.           */
+/* ------------------------------------------------------------------ */
+:root {
+  --offset-sm: 32px;
+  --offset-md: 64px;
+  --offset-lg: 96px;
+}
+
+@media (min-width: 1024px) {
+  .bc-offset-sm {
+    margin-top: var(--offset-sm);
+  }
+
+  .bc-offset-md {
+    margin-top: var(--offset-md);
+  }
+
+  .bc-offset-lg {
+    margin-top: var(--offset-lg);
+  }
+}
+
+/* A imagem ultrapassa o container até o limite da viewport.            */
+@media (min-width: 1280px) {
+  .bc-breakout-right {
+    margin-right: calc(50% - 50vw);
+  }
+
+  .bc-breakout-left {
+    margin-left: calc(50% - 50vw);
+  }
+}

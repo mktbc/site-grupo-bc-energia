@@ -1,0 +1,38 @@
+{
+  "title": "Varejo",
+  "description": "",
+  "icon": "varejo.svg",
+  "coverUrl": "/img/global/arrendamento-de-usinas.webp",
+  "introduction": {
+    "img": "/img/pages/segmentos/varejo.webp",
+    "content": [
+      {
+        "title": "Aumente suas vendas com economia na conta de energia",
+        "description": "As empresas do segmento de varejo enfrentam desafios significativos com os altos custos da conta de energia. Lojas e supermercados precisam manter a iluminação constante, climatização adequada e operar diversos equipamentos eletrônicos e sistemas de refrigeração para garantir a melhor experiência de compra para os clientes. Esses custos podem impactar diretamente a margem de lucro e limitar o orçamento para investimentos em melhorias e expansão do negócio. \n \n  O Grupo BC Energia oferece soluções eficazes para ajudar as empresas de varejo a reduzir seus custos energéticos sem a necessidade de investimentos iniciais. Por meio de opções como o Mercado Livre de Energia e consórcios de energia, as empresas podem ganhar um alívio no orçamento. Com a economia gerada na conta de energia, os varejistas podem investir em aprimoramentos nas lojas, novas tecnologias e estratégias de marketing, além de melhorar a experiência do cliente e expandir suas operações. Assim, o Grupo BC Energia contribui para um ambiente de varejo mais eficiente e competitivo."
+      }
+    ],
+    "benefits": [
+      {
+        "title": "Entendemos a sua necessidade",
+        "description": "Temos experiência com clientes do seu segmento de negócio. Conte com nossa expertise para encontrar a melhor solução de economia para seu empreendimento",
+        "icon": "/img/icons/energy.svg"
+      },
+      {
+        "title": "Adicione SUSTENTABILIDADE ao seu portfólio",
+        "description": "Através do Grupo BC Energia, mostre ao mercado sua preocupação com a sustentabilidade e o meio ambiente, utilizando energia limpas e renováveis",
+        "icon": "/img/icons/solar-energy.svg"
+      },
+      {
+        "title": "Seja destaque no seu segmento",
+        "description": "O uso de fontes de energia renováveis, que geram redução de custo ao mesmo tempo que contribuem para ao meio ambiente é uma tendência dentro de organizações e empresas conscientes, e alinhadas com práticas ESG- Environmental, social, and governance - Governança ambiental, social e corporativa)",
+        "icon": "/img/icons/star.svg"
+      }
+    ]
+  },
+  "cta": {
+    "bgImage": "/img/global/arrendamento-de-usinas.webp",
+    "title": "Somos a maior <span class='text-amber-400'>comercializadora de energia</span> do\n Centro-Oeste e uma das principais independentes do país.",
+    "link": "#contato",
+    "linkText": "Quero economizar"
+  }
+}
