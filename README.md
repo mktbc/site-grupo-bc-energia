@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Site Institucional — Grupo BC Energia
 
 Site institucional do Grupo BC Energia, construído com **React + Vite + TypeScript**,
@@ -48,3 +49,6 @@ src/
   services/            # mocks das fontes de dados (Salesforce, blog, segmentos)
   helpers/, hooks/, types/, styles/
 ```
+=======
+# site-grupo-bc-energia
+>>>>>>> 0c938117e0a536e2bc8372a79b1efbd2470f5a4b
